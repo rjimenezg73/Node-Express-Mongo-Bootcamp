@@ -2,7 +2,7 @@ const http = require('http');
 
 // La primera parte es crear el servivor
 const server = http.createServer((req, res) => {
-  res.send('Hello from the Server!!');
+  res.end('Hello from the Server!!');
 });
 
 // La segunda parte es hacer que el servidor creado escuche las peticiones realizadas
