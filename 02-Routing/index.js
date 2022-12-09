@@ -4,13 +4,17 @@ const url = require('url');
 // La primera parte es crear el servivor
 const server = http.createServer((req, res) => {
   const pathName = req.url;
-
-  if(pathName === '/overview'){
+  console.log(pathName);
+  if(pathName === '/' || pathName === '/overview'){
     res.end('This is the çoverview page!');
   }else if(pathName === '/product'){
     res.end('This is the PRODUCT page');
   }else{
-    res.end('You are in not autorized page!!!');
+    res.writeHead(404,{
+      'Content-type':'text/html',
+      'my-own-header':'Hello world'
+    });
+    res.end('<h1>Page not Found!!!</h1>');
   }
   
 });
